@@ -1,39 +1,27 @@
-# Defence tracker
+# Defence Tracker
 
-_TODO: one line on what this project does and who it's for._
+A **defense-news aggregation dashboard**. It scrapes and collects defense &
+security news from multiple web sources, optionally pulls posts from Twitter/X,
+de-duplicates and stores everything in a local database, and presents it in a
+searchable Streamlit dashboard — with a background scheduler that keeps the
+feed fresh automatically.
 
-**Stack:** Python
+## Features
+- Web scraping of defense-news sites (`requests` + BeautifulSoup/lxml)
+- Optional Twitter/X integration (`tweepy`)
+- De-duplication + persistence in SQLite (`defense_news.db`)
+- Background scheduler service for periodic refresh (`scheduler_service.py`)
+- Interactive Streamlit UI (filter, search, browse)
+
+## Stack
+Python · Streamlit · pandas · BeautifulSoup · SQLite
 
 ## Getting started
-
 ```bash
 pip install -r requirements.txt
-python <entry>.py
-```
-
-## Dependencies
-
-- `streamlit>=1.28.0`
-- `pandas>=2.0.0`
-- `beautifulsoup4>=4.12.0`
-- `requests>=2.31.0`
-- `lxml>=4.9.0`
-
-## Project structure
-
-```
-API Key : nAFpCw83IgTBD4kumjfrUom9z.pdf
-app_latest1.py
-defense_news.db
-push_to_github.sh
-requirements.txt
-scheduler_service.py
+streamlit run app_latest1.py
 ```
 
 ## Notes
-
-_TODO: anything a new user should know — configuration, env vars, known limitations._
-
----
-
-_README scaffolded by readme_gen. Edit the TODOs to finish it._
+- Configure any API keys (Twitter/X, news sources) before first run.
+- Intended for open-source news aggregation from public sources.
